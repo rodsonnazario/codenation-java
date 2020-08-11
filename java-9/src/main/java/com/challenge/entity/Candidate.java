@@ -7,7 +7,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.validation.constraints.NotNull;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -21,5 +21,5 @@ public class Candidate {
 
     @NotNull
     @CreatedDate
-    private LocalTime createdAt;
+    private LocalDateTime createdAt;
 }

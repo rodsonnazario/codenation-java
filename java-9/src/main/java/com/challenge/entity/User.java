@@ -7,7 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -43,5 +43,5 @@ public class User {
 
     @NotNull
     @CreatedDate
-    private LocalTime createdAt;
+    private LocalDateTime createdAt;
 }

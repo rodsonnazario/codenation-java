@@ -6,7 +6,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -32,5 +32,5 @@ public class Acceleration {
 
     @NotNull
     @CreatedDate
-    private LocalTime createdAt;
+    private LocalDateTime createdAt;
 }
