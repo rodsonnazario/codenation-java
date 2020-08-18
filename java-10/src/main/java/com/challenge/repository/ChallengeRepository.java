@@ -1,12 +1,19 @@
 package com.challenge.repository;
 
 import com.challenge.entity.Challenge;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-//TODO
+@Repository
 public interface ChallengeRepository extends CrudRepository<Challenge, Long> {
-    List<Challenge> findByAccelerationsId(Long accelerationId);
-//    List<Challenge> findByAccelerationsId(Long accelerationId);
+    @Query("select distinct cha from Challenge cha " +
+            " join cha.accelerations as acc " +
+            " join acc.candidates can " +
+            " join can.id.user user " +
+            "where user.id = :userId and acc.id = :accelerationId")
+    List<Challenge> findByAccelerationIdAndUserId(@Param("accelerationId") Long accelerationId, @Param("userId") Long userId);
 }
